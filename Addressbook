@@ -238,3 +238,13 @@ mysql> select * from addressbook where contacttype='family';
 | Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com | Alchemist | family      |
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
 2 rows in set (0.00 sec)
+
+mysql> select count(firstname) from addressbook where contacttype='family';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql>
