@@ -54,4 +54,29 @@ mysql> desc AddressBook ;
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.17 sec)
 
+mysql> insert into AddressBook(firstname,lastname,address,city,state,zip,phonenu
+mber,email) values('Rani','Dhumma','shelgi','Solapur','maharashtra',500038,99244
+559,'rd@gmail.com');
+Query OK, 1 row affected (0.21 sec)
+
+mysql> insert into AddressBook(firstname,lastname,address,city,state,zip,phonenu
+mber,email) values('Jia','khan','abcd','Pune','maharashtra',5432038,99285974,'jk
+@gmail.com');
+Query OK, 1 row affected (0.18 sec)
+
+mysql> insert into AddressBook(firstname,lastname,address,city,state,zip,phonenu
+mber,email) values('Teju','Kumar','xyz','Mumbai','maharashtra',544538,99245414,'
+tk@gmail.com');
+Query OK, 1 row affected (0.07 sec)
+
+mysql>  select * from addressbook;
++-----------+----------+---------+---------+-------------+---------+-------------+--------------+
+| firstName | lastName | address | city    | state       | zip     | phoneNumber| email        |
++-----------+----------+---------+---------+-------------+---------+------------+--------------+
+| Rani      | Dhumma   | shelgi  | Solapur | maharashtra |  500038 |    99244559| rd@gmail.com |
+| Jia       | khan     | abcd    | Pune    | maharashtra | 5432038 |    99285974| jk@gmail.com |
+| Teju      | Kumar    | xyz     | Mumbai  | maharashtra |  544538 |    99245414| tk@gmail.com |
++-----------+----------+---------+---------+-------------+---------+------------+--------------+
+3 rows in set (0.00 sec)
+
 mysql>
