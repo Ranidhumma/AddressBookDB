@@ -170,5 +170,71 @@ mysql> select firstname,city from addressbook order by city;
 +-----------+---------+
 2 rows in set (0.03 sec)
 
- 
-mysql>
+    
+mysql>  alter table addressbook add bookname VARCHAR(32) NOT NULL, add contactty
+pe VARCHAR(32) NOT NULL;
+Query OK, 0 rows affected (1.94 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Addressbook ;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(32)  | NO   |     | NULL    |       |
+| lastName    | varchar(32)  | NO   |     | NULL    |       |
+| address     | varchar(150) | NO   |     | NULL    |       |
+| city        | varchar(32)  | NO   |     | NULL    |       |
+| state       | varchar(32)  | NO   |     | NULL    |       |
+| zip         | int unsigned | NO   |     | NULL    |       |
+| phoneNumber | int unsigned | NO   |     | NULL    |       |
+| email       | varchar(150) | NO   |     | NULL    |       |
+| bookname    | varchar(32)  | NO   |     | NULL    |       |
+| contacttype | varchar(32)  | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+10 rows in set (0.06 sec)
+
+mysql> select * from addressbook;
++-----------+----------+---------+---------+-------------+--------+-------------
++--------------+----------+-------------+
+| firstName | lastName | address | city    | state       | zip    | phoneNumber
+| email        | bookname | contacttype |
++-----------+----------+---------+---------+-------------+--------+-------------
++--------------+----------+-------------+
+| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559
+| rd@gmail.com |          |             |
+| Teju      | Kumar    | xyz     | Mumbai  | maharashtra | 544538 |    99245414
+| tk@gmail.com |          |             |
++-----------+----------+---------+---------+-------------+--------+-------------
++--------------+----------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Addressbook ;
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+----------+-------------+
+| firstName | lastName | address | city    | state       | zip    | phoneNumber| email        | bookname | contacttype |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+----------+-------------+
+| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com |          |             |
+| Teju      | Kumar    | xyz     | Mumbai  | maharashtra | 544538 |    99245414| tk@gmail.com |          |             |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+----------+-------------+
+2 rows in set (0.00 sec)
+
+mysql>  update addressbook set bookname ='Alchemist', contacttype='family' where
+ lastname='Dhumma';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressbook;
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
+| firstName | lastName | address | city    | state       | zip    | phoneNumber| email        | bookname  | contacttype |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
+| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com | Alchemist | family      |
+| Teju      | Kumar    | xyz     | Mumbai  | maharashtra | 544538 |    99245414| tk@gmail.com |           |             |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
+2 rows in set (0.05 sec)
+
+mysql> select * from addressbook where contacttype='family';
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
+| firstName | lastName | address | city    | state       | zip    | phoneNumber| email        | bookname  | contacttype |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
+| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com | Alchemist | family      |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
+2 rows in set (0.00 sec)
