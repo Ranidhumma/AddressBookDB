@@ -93,8 +93,18 @@ mysql> select * from addressbook ;
 +-----------+----------+---------+---------+-------------+---------+-------------+--------------+
 3 rows in set (0.02 sec)
 
+mysql> delete from addressbook where lastname='Patil';
+Query OK, 1 row affected (0.25 sec)
+
+mysql>  select * from addressbook ;
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+
+| firstName | lastName | address | city    | state       | zip    | phoneNumber| email        |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+
+| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com |
+| Teju      | Kumar    | xyz     | Mumbai  | maharashtra | 544538 |    99245414| tk@gmail.com |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+
+2 rows in set (0.07 sec)
+
 mysql>
-
-
 
 
