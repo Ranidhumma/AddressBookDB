@@ -135,3 +135,40 @@ mysql> select city, Count(firstName) from addressBook group by city;
 2 rows in set (0.00 sec)
 
 
+mysql> select * from Addressbook where city='Solapur' or state='maharastra';
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+
+| firstName | lastName | address | city    | state       | zip    | phoneNumber| email        |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+
+| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select count(firstname) from addressbook where city='Solapur';
++------------------+
+| count(firstname) |
++------------------+
+|                1 |
++------------------+
+1 row in set (0.08 sec)
+
+mysql> select city, Count(firstName) from addressBook group by city;
++---------+------------------+
+| city    | Count(firstName) |
++---------+------------------+
+| Solapur |                1 |
+| Mumbai  |                1 |
++---------+------------------+
+2 rows in set (0.00 sec)
+
+
+mysql> select firstname,city from addressbook order by city;
++-----------+---------+
+| firstname | city    |
++-----------+---------+
+| Teju      | Mumbai  |
+| Rani      | Solapur |
++-----------+---------+
+2 rows in set (0.03 sec)
+
+ 
+mysql>
