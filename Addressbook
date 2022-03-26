@@ -27,4 +27,31 @@ mysql> show databases
 +----------------------+
 5 rows in set (0.78 sec)
 
+mysql> create table AddressBook
+    -> (firstName VARCHAR(32) NOT NULL,lastName VARCHAR(32) NOT NULL,address VAR
+CHAR(150) NOT NULL,city VARCHAR(32) NOT NULL, state VARCHAR(32) NOT NULL,zip INT
+ unsigned NOT NULL,phoneNumber INT unsigned NOT NULL,email VARCHAR(150) NOT NULL
+);
+Query OK, 0 rows affected (2.60 sec)
+
+mysql> desc AddressBook
+    -> desc AddressBook;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'desc
+AddressBook' at line 2
+mysql> desc AddressBook ;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(32)  | NO   |     | NULL    |       |
+| lastName    | varchar(32)  | NO   |     | NULL    |       |
+| address     | varchar(150) | NO   |     | NULL    |       |
+| city        | varchar(32)  | NO   |     | NULL    |       |
+| state       | varchar(32)  | NO   |     | NULL    |       |
+| zip         | int unsigned | NO   |     | NULL    |       |
+| phoneNumber | int unsigned | NO   |     | NULL    |       |
+| email       | varchar(150) | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.17 sec)
+
 mysql>
