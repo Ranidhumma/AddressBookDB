@@ -11,4 +11,20 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
+mysql> create database Address_Book_Service;
+Query OK, 1 row affected (1.02 sec)
+
+mysql> show databases
+    -> ;
++----------------------+
+| Database             |
++----------------------+
+| address_book_service |
+| information_schema   |
+| mysql                |
+| performance_schema   |
+| sys                  |
++----------------------+
+5 rows in set (0.78 sec)
+
 mysql>
