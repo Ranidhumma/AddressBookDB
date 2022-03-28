@@ -11,6 +11,8 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
+----------UC1 ---------------
+
 mysql> create database Address_Book_Service;
 Query OK, 1 row affected (1.02 sec)
 
@@ -27,6 +29,7 @@ mysql> show databases
 +----------------------+
 5 rows in set (0.78 sec)
 
+----------UC2 -----------
 mysql> create table AddressBook
     -> (firstName VARCHAR(32) NOT NULL,lastName VARCHAR(32) NOT NULL,address VAR
 CHAR(150) NOT NULL,city VARCHAR(32) NOT NULL, state VARCHAR(32) NOT NULL,zip INT
@@ -52,8 +55,9 @@ mysql> desc AddressBook ;
 | phoneNumber | int unsigned | NO   |     | NULL    |       |
 | email       | varchar(150) | NO   |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
-8 rows in set (0.17 sec)
+8 rows in set (0.17 sec
 
+----------UC3 -----------
 mysql> insert into AddressBook(firstname,lastname,address,city,state,zip,phonenu
 mber,email) values('Rani','Dhumma','shelgi','Solapur','maharashtra',500038,99244
 559,'rd@gmail.com');
@@ -79,6 +83,7 @@ mysql>  select * from addressbook;
 +-----------+----------+---------+---------+-------------+---------+------------+--------------+
 3 rows in set (0.00 sec)
 
+----------UC4 -----------
 mysql> update addressbook set lastname='Patil' where firstname='Jia';
 Query OK, 1 row affected (0.13 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
@@ -93,6 +98,7 @@ mysql> select * from addressbook ;
 +-----------+----------+---------+---------+-------------+---------+-------------+--------------+
 3 rows in set (0.02 sec)
 
+----------UC5 -----------
 mysql> delete from addressbook where lastname='Patil';
 Query OK, 1 row affected (0.25 sec)
 
@@ -105,7 +111,7 @@ mysql>  select * from addressbook ;
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+
 2 rows in set (0.07 sec)
 
-
+----------UC6 -----------
 mysql> select * from Addressbook where city='Solapur' or state='maharastra';
 
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+
@@ -116,7 +122,7 @@ mysql> select * from Addressbook where city='Solapur' or state='maharastra';
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+
 1 rows in set (0.00 sec)
 
-
+----------UC7 -----------
 mysql> select count(firstname) from addressbook where city='Solapur';
 +------------------+
 | count(firstname) |
@@ -134,7 +140,7 @@ mysql> select city, Count(firstName) from addressBook group by city;
 +---------+------------------+
 2 rows in set (0.00 sec)
 
-
+----------UC8 -----------
 mysql> select * from Addressbook where city='Solapur' or state='maharastra';
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+
 | firstName | lastName | address | city    | state       | zip    | phoneNumber| email        |
@@ -170,7 +176,7 @@ mysql> select firstname,city from addressbook order by city;
 +-----------+---------+
 2 rows in set (0.03 sec)
 
-    
+ -----------UC9---------------
 mysql>  alter table addressbook add bookname VARCHAR(32) NOT NULL, add contactty
 pe VARCHAR(32) NOT NULL;
 Query OK, 0 rows affected (1.94 sec)
@@ -194,26 +200,20 @@ mysql> desc Addressbook ;
 10 rows in set (0.06 sec)
 
 mysql> select * from addressbook;
-+-----------+----------+---------+---------+-------------+--------+-------------
-+--------------+----------+-------------+
-| firstName | lastName | address | city    | state       | zip    | phoneNumber
-| email        | bookname | contacttype |
-+-----------+----------+---------+---------+-------------+--------+-------------
-+--------------+----------+-------------+
-| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559
-| rd@gmail.com |          |             |
-| Teju      | Kumar    | xyz     | Mumbai  | maharashtra | 544538 |    99245414
-| tk@gmail.com |          |             |
-+-----------+----------+---------+---------+-------------+--------+-------------
-+--------------+----------+-------------+
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+----------+-------------+
+| firstName | lastName | address | city    | state       | zip    | phoneNumber| email         | bookname | contacttype |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+----------+-------------+
+| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com  |          |             |
+| Teju      | Kumar    | xyz     | Mumbai  | maharashtra | 544538 |    99245414| tk@gmail.com  |          |             |
++-----------+----------+---------+---------+-------------+--------+-------------+--------------+----------+-------------+
 2 rows in set (0.00 sec)
 
 mysql> select * from Addressbook ;
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+----------+-------------+
-| firstName | lastName | address | city    | state       | zip    | phoneNumber| email        | bookname | contacttype |
+| firstName | lastName | address | city    | state       | zip    | phoneNumber| email         | bookname | contacttype |
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+----------+-------------+
-| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com |          |             |
-| Teju      | Kumar    | xyz     | Mumbai  | maharashtra | 544538 |    99245414| tk@gmail.com |          |             |
+| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com  |          |             |
+| Teju      | Kumar    | xyz     | Mumbai  | maharashtra | 544538 |    99245414| tk@gmail.com  |          |             |
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+----------+-------------+
 2 rows in set (0.00 sec)
 
@@ -224,21 +224,22 @@ Rows matched: 1  Changed: 1  Warnings: 0
 
 mysql> select * from addressbook;
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
-| firstName | lastName | address | city    | state       | zip    | phoneNumber| email        | bookname  | contacttype |
+| firstName | lastName | address | city    | state       | zip    | phoneNumber| email         | bookname   | contacttype |
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
-| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com | Alchemist | family      |
-| Teju      | Kumar    | xyz     | Mumbai  | maharashtra | 544538 |    99245414| tk@gmail.com |           |             |
+| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com  | Alchemist  | family      |
+| Teju      | Kumar    | xyz     | Mumbai  | maharashtra | 544538 |    99245414| tk@gmail.com  |            |             |
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
 2 rows in set (0.05 sec)
 
 mysql> select * from addressbook where contacttype='family';
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
-| firstName | lastName | address | city    | state       | zip    | phoneNumber| email        | bookname  | contacttype |
+| firstName | lastName | address | city    | state       | zip    | phoneNumber| email         | bookname  | contacttype |
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
-| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com | Alchemist | family      |
+| Rani      | Dhumma   | shelgi  | Solapur | maharashtra | 500038 |    99244559| rd@gmail.com  | Alchemist | family      |
 +-----------+----------+---------+---------+-------------+--------+-------------+--------------+-----------+-------------+
 2 rows in set (0.00 sec)
 
+----------UC10-----------
 mysql> select count(firstname) from addressbook where contacttype='family';
 +------------------+
 | count(firstname) |
